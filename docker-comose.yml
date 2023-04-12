@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        DOCKER_VARIABLE: "DOCKER_VARIABLE"
+    image: blackhevean/threejs-warehouse:latest
+    env_file:
+      - .env
+    environment:
+      - DOCKER_VARIABLE=DOCKER_VARIABLE
+    ports:
+      - "8000:8000"
